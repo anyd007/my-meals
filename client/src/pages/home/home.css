@@ -1,0 +1,18 @@
+.home {
+  height: 100vh;
+}
+.home__title {
+  height: 20vh;
+  text-align: center;
+}
+.home__title h1 {
+  font-size: 3.5rem;
+}
+.home__meal-detail {
+  height: 80vh;
+  background-image: url("../../../images/person-looking-up-recipes-in-the-kitchen.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}/*# sourceMappingURL=home.css.map */

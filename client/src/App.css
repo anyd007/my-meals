@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.App{
+  font-family: 'Kalam', cursive;
+  height: 100vh;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+}
