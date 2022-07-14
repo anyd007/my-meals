@@ -1,19 +1,88 @@
+
+%show-bg{
+    height: auto;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    animation-name: show-img;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
 .home{
     height: 100vh;
     &__title{
-        height: 20vh;
+        height: 15vh;
         text-align: center;
         h1{
             font-size: 3.5rem;
         }
     }
 
+    &__descripion{
+        text-align: center;
+        height: 17vh;
+
+        h4{
+            font-size: 2rem;
+        }
+        button{
+            font-size: 1rem;
+            font-family: 'Kalam', cursive;
+            padding: 2px 30px;
+            transition: background 0.4s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+        button:hover{
+            transition: background-color 0.4s;
+            background-color: gold;
+        }
+       
+        button:active{
+            transition: transform 0.4s;
+            transform: scale(0.9);
+        }
+    }
+
     &__meal-detail{
-        height: 80vh;
-        background-image: url("../../../images/person-looking-up-recipes-in-the-kitchen.png");
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
+        height: 68vh;
+
+        &--bg{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            height: auto;
+
+            .bg1{
+                background-image: url("../../../images/tomatoes-gd138f26d1_1920.jpg");
+                @extend %show-bg;
+                animation-delay: 0.3s;
+            }
+            .bg2{
+                background-image: url("../../../images/background-g05f1fd90b_1280.jpg");
+                @extend %show-bg;
+                animation-delay: 0.7s;
+            }
+            .bg3{
+                background-image: url("../../../images/skewer-gb38b96108_1280.jpg");
+                @extend %show-bg;
+                animation-delay: 1.2s;
+            }
+            .bg4{
+                background-image: url("../../../images/abstract-g0698f9c9a_1280.jpg");
+                @extend %show-bg;
+                animation-delay: 1.7s;
+            }
+        }
+    }
+}
+@keyframes show-img {
+    from{
+        height: 0%;
+    }
+    to{
+        height: 68vh;
     }
 }

@@ -1,0 +1,110 @@
+.meal-form {
+  position: fixed;
+  z-index: 1;
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-animation-name: show-form;
+          animation-name: show-form;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.meal-form__container {
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  top: 4%;
+  transform: translate(-50%);
+  height: 90vh;
+  width: 90vw;
+  border-radius: 10px;
+  -webkit-backdrop-filter: 20px;
+          backdrop-filter: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  gap: 4rem;
+}
+.meal-form__container--icon {
+  cursor: pointer;
+  position: absolute;
+  font-size: 2rem;
+  right: 3%;
+  top: 3%;
+  transition: transform 0.4s;
+  transform: rotate(0deg) scale(1);
+}
+.meal-form__container--icon:hover {
+  transition: transform 0.4s;
+  transform: rotate(360deg) scale(1.5);
+  color: tomato;
+}
+.meal-form__container label {
+  font-size: 1.5rem;
+}
+.meal-form__container input {
+  text-align: center;
+  width: 50%;
+  font-family: "Kalam", cursive;
+  font-size: 1rem;
+  background-color: transparent;
+}
+.meal-form__container select {
+  font-family: "Kalam", cursive;
+  width: 40%;
+  background-color: transparent;
+  font-size: 1rem;
+}
+.meal-form__container option {
+  font-family: "Kalam", cursive;
+}
+.meal-form__container textarea {
+  font-family: "Kalam", cursive;
+  font-size: 1rem;
+  resize: none;
+  width: 50%;
+  height: 60%;
+  background-color: transparent;
+}
+.meal-form__container button {
+  font-size: 1rem;
+  font-family: "Kalam", cursive;
+  padding: 2px 30px;
+  transition: background 0.4s ease;
+  background: transparent;
+  cursor: pointer;
+}
+.meal-form__container button:hover {
+  transition: background-color 0.4s;
+  background-color: gold;
+}
+.meal-form__container button:active {
+  transition: transform 0.4s;
+  transform: scale(0.9);
+}
+
+@-webkit-keyframes show-form {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show-form {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=meal-form.css.map */

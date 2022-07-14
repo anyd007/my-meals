@@ -1,18 +1,94 @@
+.home__meal-detail--bg .bg4, .home__meal-detail--bg .bg3, .home__meal-detail--bg .bg2, .home__meal-detail--bg .bg1 {
+  height: auto;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-animation-name: show-img;
+          animation-name: show-img;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
 .home {
   height: 100vh;
 }
 .home__title {
-  height: 20vh;
+  height: 15vh;
   text-align: center;
 }
 .home__title h1 {
   font-size: 3.5rem;
 }
+.home__descripion {
+  text-align: center;
+  height: 17vh;
+}
+.home__descripion h4 {
+  font-size: 2rem;
+}
+.home__descripion button {
+  font-size: 1rem;
+  font-family: "Kalam", cursive;
+  padding: 2px 30px;
+  transition: background 0.4s ease;
+  background: transparent;
+  cursor: pointer;
+}
+.home__descripion button:hover {
+  transition: background-color 0.4s;
+  background-color: gold;
+}
+.home__descripion button:active {
+  transition: transform 0.4s;
+  transform: scale(0.9);
+}
 .home__meal-detail {
-  height: 80vh;
-  background-image: url("../../../images/person-looking-up-recipes-in-the-kitchen.png");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  height: 68vh;
+}
+.home__meal-detail--bg {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: auto;
+}
+.home__meal-detail--bg .bg1 {
+  background-image: url("../../../images/tomatoes-gd138f26d1_1920.jpg");
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.home__meal-detail--bg .bg2 {
+  background-image: url("../../../images/background-g05f1fd90b_1280.jpg");
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+.home__meal-detail--bg .bg3 {
+  background-image: url("../../../images/skewer-gb38b96108_1280.jpg");
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+.home__meal-detail--bg .bg4 {
+  background-image: url("../../../images/abstract-g0698f9c9a_1280.jpg");
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
+}
+
+@-webkit-keyframes show-img {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 68vh;
+  }
+}
+
+@keyframes show-img {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 68vh;
+  }
 }/*# sourceMappingURL=home.css.map */

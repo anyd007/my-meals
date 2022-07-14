@@ -8,6 +8,5 @@
 .App{
   font-family: 'Kalam', cursive;
   height: 100vh;
-  background: #ECE9E6;  /* fallback for old browsers */
-  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+  background-color: lightgrey;
 }

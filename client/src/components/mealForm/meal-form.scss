@@ -1,0 +1,104 @@
+
+.meal-form{
+    position: fixed;
+    z-index: 1;
+    left: 0%;
+    top: 0%;
+    height: 100vh;
+    width: 100vw;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    animation-name: show-form;
+    animation-duration: 0.7s;
+
+    &__container{
+        position: fixed;
+        z-index: 2;
+        left: 50%;
+        top: 4%;
+        transform: translate(-50%);
+        height: 90vh;
+        width: 90vw;
+        border-radius: 10px;
+        backdrop-filter: 20px;
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        gap: 4rem;
+
+        &--icon{
+            cursor: pointer;
+            position: absolute;
+            font-size: 2rem;
+            right: 3%;
+            top: 3%;
+            transition: transform 0.4s;
+            transform: rotate(0deg) scale(1);
+        }
+
+        &--icon:hover{
+            transition: transform 0.4s;
+            transform: rotate(360deg) scale(1.5);
+            color: tomato;
+        }
+        label{
+            font-size: 1.5rem
+        }
+        input{
+            text-align: center;
+            width: 50%;
+            font-family: 'Kalam', cursive;
+            font-size: 1rem;
+            background-color: transparent;
+        }
+        select{
+            font-family: 'Kalam', cursive;
+            width: 40%;
+            background-color: transparent;
+            font-size: 1rem;
+        }
+        option{
+            font-family: 'Kalam', cursive;
+        }
+        textarea{
+            font-family: 'Kalam', cursive;
+            font-size: 1rem;
+            resize: none;
+            width: 50%;
+            height: 60%;
+            background-color: transparent;
+            
+        }
+        button{
+            font-size: 1rem;
+            font-family: 'Kalam', cursive;
+            padding: 2px 30px;
+            transition: background 0.4s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+        button:hover{
+            transition: background-color 0.4s;
+            background-color: gold;
+        }
+       
+        button:active{
+            transition: transform 0.4s;
+            transform: scale(0.9);
+        }
+
+    }
+}
+
+@keyframes show-form {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
