@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useMealContext } from "../../hooks/useMealContext";
 import { meals } from "../../api/MealApi";
@@ -6,7 +6,7 @@ import "./meal-form.css";
 
 const initalState = {
     title:'',
-    info:'',
+    composition:'',
     hour:''
 }
 const reducer = (state, action) =>{
@@ -19,7 +19,7 @@ const reducer = (state, action) =>{
         case "INFO_INPUT":
             return {
                 ...state,
-                info: action.payload
+                composition: action.payload
             }
         case "HOUR_INPUT":
             return {
@@ -31,11 +31,34 @@ const reducer = (state, action) =>{
 }
 
 const MealForm = () =>{
-    const {showForm, setShowForm} = useMealContext()
-    const [state, dispatch] = useReducer(reducer, initalState)
-    const handleSubmit = (e) =>{
+    const {showForm, setShowForm, dispatch} = useMealContext()
+    const [state, dispatchInptus] = useReducer(reducer, initalState)
+    const [error, setError] = useState(null)
+    const [emptyFields, setEmptyFields] = useState([])
+    const title = state.title
+    const composition = state.composition
+    const hour = state.hour
+
+    const handleSubmit = async (e) =>{
         e.preventDefault()
-        console.log(state);
+        const meal = ({title, composition, hour})
+        const response = await fetch("http://localhost:4000/api/meals", {
+            method: "POST",
+            body: JSON.stringify(meal),
+            headers:{"Content-type":"application/json"}
+        })
+        const json = await response.json()
+        if(!response.ok){
+            setError(json.error)
+            console.log(json.emptyFields);
+        }
+        if(response.ok){
+            state.title = ''
+            state.composition = ''
+            state.hour = ''
+            setError(null)
+            dispatch({type: "CREATE_MEAL", payload: json})
+        }
     }
 
     return(
@@ -48,7 +71,7 @@ const MealForm = () =>{
                     name="title" 
                     id="title"
                     value={state.title}
-                    onChange={e=> dispatch({type:"TITLE_INPUT", payload: e.target.value})}>
+                    onChange={e=> dispatchInptus({type:"TITLE_INPUT", payload: e.target.value})}>
                     {meals && meals.map(el=>(<option key={el.id}>{el.name}</option>))}
                     </select>
                 </div>
@@ -61,20 +84,21 @@ const MealForm = () =>{
                     name="info" 
                     id="info"
                     value={state.info}
-                    onChange={e=> dispatch({type: "INFO_INPUT", payload: e.target.value})}></textarea>
+                    onChange={e=> dispatchInptus({type: "INFO_INPUT", payload: e.target.value})}></textarea>
                 </div>
 
                 <div className="meal-form__container--hour">
-                    <label htmlFor="hour">O KTÓREJ GODZINIE?</label><br />
+                    <label htmlFor="hour">KIEDY ?</label><br />
                     <input 
-                    type="time" 
+                    type="datetime-local" 
                     name="hour" 
                     id="hour" 
                     value={state.hour}
-                    onChange={e=> dispatch({type: "HOUR_INPUT", payload: e.target.value})}/>
+                    onChange={e=> dispatchInptus({type: "HOUR_INPUT", payload: e.target.value})}/>
                 </div>
                 <div className="meal-form__container--btn">
                     <button>DODAJ</button>
+                    {error && <div className="error">{error}</div>}
                 </div>
             </form>
         </div>

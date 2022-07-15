@@ -39,7 +39,7 @@ const createMeal = async (req, res)=>{
         emptyFields.push("hour")
     }
     if(emptyFields.length > 0){
-        res.status(400).json({error:"Wszystkie pola są obowiązkowe", emptyFields})
+       return res.status(400).json({error:"Wszystkie pola są obowiązkowe", emptyFields})
     }
 
     //dodawanie do bazy danych

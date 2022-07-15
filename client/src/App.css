@@ -7,6 +7,6 @@
 
 .App{
   font-family: 'Kalam', cursive;
-  height: 100vh;
+  height: auto;
   background-color: lightgrey;
 }
