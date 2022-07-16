@@ -50,13 +50,14 @@ const MealForm = () =>{
         const json = await response.json()
         if(!response.ok){
             setError(json.error)
-            console.log(json.emptyFields);
+            setEmptyFields(json.emptyFields)
         }
         if(response.ok){
             state.title = ''
             state.composition = ''
             state.hour = ''
             setError(null)
+            setEmptyFields([])
             dispatch({type: "CREATE_MEAL", payload: json})
         }
     }
@@ -70,6 +71,7 @@ const MealForm = () =>{
                     <select 
                     name="title" 
                     id="title"
+                    className={emptyFields.includes("title") ? "error" : ""}
                     value={state.title}
                     onChange={e=> dispatchInptus({type:"TITLE_INPUT", payload: e.target.value})}>
                     {meals && meals.map(el=>(<option key={el.id}>{el.name}</option>))}
@@ -83,6 +85,7 @@ const MealForm = () =>{
                     type="text" 
                     name="info" 
                     id="info"
+                    className={emptyFields.includes("composition") ? "error" : ""}
                     value={state.info}
                     onChange={e=> dispatchInptus({type: "INFO_INPUT", payload: e.target.value})}></textarea>
                 </div>
@@ -93,12 +96,13 @@ const MealForm = () =>{
                     type="datetime-local" 
                     name="hour" 
                     id="hour" 
+                    className={emptyFields.includes("hour") ? "error" : ""}
                     value={state.hour}
                     onChange={e=> dispatchInptus({type: "HOUR_INPUT", payload: e.target.value})}/>
                 </div>
                 <div className="meal-form__container--btn">
+                {error && <div className="errorMsg">{error}</div>}
                     <button>DODAJ</button>
-                    {error && <div className="error">{error}</div>}
                 </div>
             </form>
         </div>

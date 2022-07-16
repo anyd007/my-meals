@@ -18,6 +18,10 @@ const reducer = (state, action)=>{
             return {
                 meals:[action.payload, ...state.meals]
             }
+        case "DELETE_MEAL" :
+            return {
+                meals: state.meals.filter(meal=> meal._id !== action.payload._id)
+            }
         default: return state
     }
 }

@@ -28,7 +28,7 @@
         flex-direction: column;
         text-align: center;
         justify-content: center;
-        gap: 4rem;
+        gap: 2.5rem;
 
         &--icon{
             cursor: pointer;
@@ -90,7 +90,9 @@
             transition: transform 0.4s;
             transform: scale(0.9);
         }
-
+        .error{
+            border: 2px solid tomato;
+        }
     }
 }
 

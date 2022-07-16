@@ -31,7 +31,7 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 2.5rem;
 }
 .meal-form__container--icon {
   cursor: pointer;
@@ -89,6 +89,9 @@
 .meal-form__container button:active {
   transition: transform 0.4s;
   transform: scale(0.9);
+}
+.meal-form__container .error {
+  border: 2px solid tomato;
 }
 
 @-webkit-keyframes show-form {
